@@ -1,0 +1,1 @@
+I used the echo function to write this from the Windows terminal then "> hello.txt" to create and write to the file and the more function to read it 
