@@ -6,7 +6,13 @@
     Example: [1, 2, 3] -> [3, 2, 1]
 */
 function reverseArr(arr) {
+    let reversed = []
 
+    for (let i = arr.length - 1; i >= 0; i--) {
+        reversed.push(arr[i])
+    }
+
+    return reversed
 }
 
 /*
@@ -25,8 +31,15 @@ function reverseArr(arr) {
     ["name", "age", "breed", "friendly"]
 */
 function objectKeysToArr(object) {
+    let objectArr = []
 
+    for (const props in object) {
+        objectArr.push(props)
+    }
+    
+    return objectArr
 }
+
 
 /*
     Create a function that takes in two objects as arguments 
@@ -52,7 +65,17 @@ function objectKeysToArr(object) {
     }
 */
 function combineObjects(object1, object2) {
+    let newObj = {}
 
+    for (const props in object1) {
+        newObj[props] = object1[props]
+    }
+
+    for (const props in object2) {
+        newObj[props] = object2[props]
+    }
+
+    return newObj
 }
 
 
@@ -63,4 +86,4 @@ console.log(reverseArr([2, 4, 6, 8]))
 console.log(objectKeysToArr({ name: "Casey", age: 18, breed: "Pomeranian", friendly: false }))
 console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian", "test 1": false }))
 console.log(combineObjects({ name: "Casey", age: 18 }, { breed: "Pomeranian", friendly: false }))
-console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false }))
+console.log(combineObjects({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false }))
