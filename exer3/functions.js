@@ -65,15 +65,18 @@ function objectKeysToArr(object) {
     }
 */
 function combineObjects(object1, object2) {
-    let newObj = {}
-
-    for (const props in object1) {
-        newObj[props] = object1[props]
+    let newObj = {
+        ...object1,
+        ...object2,
     }
 
-    for (const props in object2) {
-        newObj[props] = object2[props]
-    }
+    // for (const props in object1) {
+        // newObj[props] = object1[props]
+    // }
+
+    // for (const props in object2) {
+        // newObj[props] = object2[props]
+    // }
 
     return newObj
 }
