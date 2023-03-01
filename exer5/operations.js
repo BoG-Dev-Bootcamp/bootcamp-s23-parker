@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import Dog from "./models/dog.js"
 
 /** 
 Get a dog from the db based on a specific attribute
@@ -35,7 +36,10 @@ Create a new dog and save it to the db
 
 */
 const createDog = async (newDogData) => {
-
+    const newDog = new Dog(newDogData)
+    const results = await newDog.save()
+    console.log(results)
+    return true
 }
 
 /** 
