@@ -24,5 +24,5 @@ console.log(test3)
 console.log(test4)
 console.log(test5)
 
-closeDB() // function that closes the connection to your db
+await closeDB() // function that closes the connection to your db
 
