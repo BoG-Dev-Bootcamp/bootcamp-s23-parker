@@ -11,7 +11,7 @@ Get a dog from the db based on a specific attribute
 
 */
 const readDog = async (identifier) => {
-
+    return Dog.find(identifier)
 }
 
 /** 
@@ -23,7 +23,7 @@ Get all dogs from the db
 
 */
 const readDogs = async () => {
-
+    return Dog.find()
 }
 
 /** 
@@ -38,8 +38,8 @@ Create a new dog and save it to the db
 const createDog = async (newDogData) => {
     const newDog = new Dog(newDogData)
     const results = await newDog.save()
-    console.log(results)
-    return true
+
+    return (typeof results.writeError !== undefined)
 }
 
 /** 
@@ -55,8 +55,11 @@ Dog object should remain but the specificed attributes should be changed.
 
 */
 const updateDog = async (identifier, newDogData) => {
+    const results = await Dog.findOne(identifier).updateOne(newDogData)
 
+    return (typeof results.writeError !== undefined)
 }
+
 /** 
 Remove a dog from the db based on a specific attribute
 
@@ -67,7 +70,9 @@ Remove a dog from the db based on a specific attribute
 
 */
 const deleteDog = async (identifier) => {
+    const results = await Dog.deleteOne(identifier)
 
+    return (typeof results.writeError !== undefined)
 }
 
 export { readDog, readDogs, createDog, updateDog, deleteDog }
